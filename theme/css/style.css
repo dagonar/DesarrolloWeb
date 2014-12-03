@@ -231,6 +231,38 @@ select{
 }
 
 /***************************************************
+**************        link a login  ****************
+****************************************************/
+
+.log
+{
+	font-family: Arial;
+	font-size: 20px;
+	position: absolute;	
+	left:0;
+	right:0;
+	bottom:2;
+	margin: auto;
+	height: 50px;
+	width: 220px;
+	background: #4477a1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#81a8cb), to(#4477a1) );
+    background: -moz-linear-gradient(-90deg, #81a8cb, #4477a1);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#81a8cb', endColorstr='#4477a1');
+}
+
+.log:hover {
+    background: #81a8cb;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4477a1), to(#81a8cb) );
+    background: -moz-linear-gradient(-90deg, #4477a1, #81a8cb);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4477a1', endColorstr='#81a8cb');            
+}
+
+.log:active {
+    background: #4477a1;
+}
+
+/***************************************************
 **************    Botones Azules    ****************
 ****************************************************/
 .button-blue{
