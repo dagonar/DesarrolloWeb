@@ -2,6 +2,7 @@
 require("../mod_configuracion/conexion.php");
 require("format_date.php");
 
+$post_fecha = $_POST["idmarca"];
 if($post_fecha == 0){
 	$post_fecha = "now()";
 	}
@@ -34,6 +35,7 @@ if(isset($_POST["idmarca"]))
 			     	$ano = $date[0];
 		    		$mes = $date[1];
 			    	$dia = $date[2];
+			    	$mes = meses($mes);
 			    			   	   			 								
 			     }
 			     $fecha = fecha_completa($dia, $mes, $ano);

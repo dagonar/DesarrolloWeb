@@ -3,6 +3,7 @@ require("../mod_configuracion/conexion.php");
 require("../theme/header_inicio.php");
 ?>
 <br />
+
 <div class="titulo">Registro del Paciente</div><br /><br />
 <?php
 if (strtolower($_REQUEST["acc"])=="registrar"){
@@ -15,26 +16,26 @@ if (strtolower($_REQUEST["acc"])=="registrar"){
 		}else{
 		//valida fecha de nacimiento
 		if($_REQUEST["dia1"]<=0 or $_REQUEST["dia1"]>31 or $_REQUEST["mes1"]<=0 or $_REQUEST["mes1"]>12 or $_REQUEST["ano1"]<=0 or $_REQUEST["ano1"]<=1900){cuadro_error("Fecha errada, verifique.");}else{
-		//Subir imagen a nuestro fichero
+		//Subir imagen
 		if($_FILES['userfile']['name']!=""){//comprueba que la imagen exista
-		//INICIALIZACION DE VARIABLES PARA EL ARCHIVO
+		//SE INICIALIZA LAS VARIABLES PARA EL ARCHIVO
 		//datos del arhivo
 		$nombre_archivo = "fotopaciente/" . $_FILES['userfile']['name'];
 		$tipo_archivo = $_FILES['userfile']['type'];
 		$tamano_archivo = $_FILES['userfile']['size'];
 		$nuevo_archivo= "fotopaciente/" . quitar($_REQUEST["cedula"] .'.'. substr($tipo_archivo,6,4));
-		//compruebo si las características del archivo son las que deseo
+		//Compruebo si las características del archivo son las que deseo
 		if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg")) && ($tamano_archivo < 5000000))) {
 		    cuadro_error("La extensión o el tamaño de los archivos no es correcta, Se permiten archivos .gif o .jpg de 5 Mb máximo");
 		}else{
 			if (move_uploaded_file($_FILES['userfile']['tmp_name'], $nombre_archivo)){
 			   rename($nombre_archivo,$nuevo_archivo);
-   		  //  cuadro_mensaje("El archivo ha sido cargado correctamente");
+   		  cuadro_mensaje("El archivo ha sido cargado correctamente");
   			}else{
    				    cuadro_error("Ocurrió algún error al subir el archivo. No pudo guardarse");
  			     }
 } 
-		}else{$nuevo_archivo= "fotopaciente/NoPicture.gif";}//sino hay imagen asigna una por defecto
+		}else{$nuevo_archivo= "fotopaciente/NoPicture.gif";}//sino hay imagen se le asigna una por defecto
 		//donde se llevan los datos a la BD
 			$sql="insert into paciente(ced,nombre,apellido,fec_nac,sexo,nombre_representante,pais,estado,ciudad,municipio,estado_civil,emergencia,grusan,vih,ocupacion,alergico,med_act,enf_act,peso,talla,foto) values('".$_REQUEST["cedula"]."','".strtoupper($_REQUEST["nombre"])."','".strtoupper($_REQUEST["apellido"])."','".$_REQUEST["ano1"]."-".$_REQUEST["mes1"]."-".$_REQUEST["dia1"]."','".$_REQUEST["sexo"]."','".strtoupper($_REQUEST["nomrep"])."','".$_REQUEST["pais"]."','".strtoupper($_REQUEST["estado"])."','".strtoupper($_REQUEST["ciudad"])."','".strtoupper($_REQUEST["municipio"])."','".$_REQUEST["estciv"]."','".strtoupper($_REQUEST["emergencia"])."','".$_REQUEST["grusan"]."','".$_REQUEST["vih"]."','".strtoupper($_REQUEST["ocupacion"])."','".strtoupper($_REQUEST["alergico"])."','".strtoupper($_REQUEST["medact"])."','".strtoupper($_REQUEST["enfermedad"])."','".strtoupper($_REQUEST["peso"])."','".strtoupper($_REQUEST["talla"])."','".$nuevo_archivo."')";
 			$sql2="insert into expediente(ced_paciente,estado_exp,sala,direccion,telefono) values('".$_REQUEST["cedula"]."','0','".$_REQUEST["sala"]."','".$_REQUEST["direccion"]."','".$_REQUEST["telefono"]."')";
@@ -61,7 +62,7 @@ if (strtolower($_REQUEST["acc"])=="registrar"){
 	<td class="tdatos" colspan="2" align="center"><h3>DATOS PERSONALES DEL PACIENTE</h3></td>
 </tr>
 <tr>
-	<td class="tdatos">C&eacute;dula</td>
+	<td class="tdatos">No. de Cama</td>
 	<td class="dtabla"><input type="text" name="cedula" value="<?php echo $_REQUEST["cedula"]; ?>" size="12" /></td>
 </tr>
 <tr>
@@ -94,12 +95,12 @@ if (strtolower($_REQUEST["acc"])=="registrar"){
 	</td>
 </tr>
 <tr>
-	<td class="tdatos">Nombre del Representante</td>
+	<td class="tdatos">Nombre del Adscrito</td>
 	<td class="dtabla"><input type="text" name="nomrep" value="<?php echo $_REQUEST["nomrep"]; ?>" size="40" /></td>
 </tr>
 <tr>
-	<td class="tdatos">Telefonos</td>
-	<td class="dtabla"><input type="text" name="telefono" value="<?php echo $_REQUEST["telefono"]; ?>" size="20" /></td>
+	<td class="tdatos">Telefono</td>
+	<td class="dtabla"><input placeholder="(###) ### ####"type="text" name="telefono" value="<?php echo $_REQUEST["telefono"]; ?>" size="20" /></td>
 </tr>
 <tr>
 	<td class="tdatos">Sala</td>
@@ -217,21 +218,23 @@ if (strtolower($_REQUEST["acc"])=="registrar"){
 	<td class="dtabla"><input type="text" name="talla" value="<?php echo $_REQUEST["talla"]; ?>" size="5" /></td>
 </tr>
 <tr>
-	<td class="tdatos">Alergico</td>
+	<td class="tdatos">Alergias</td>
 	<td class="dtabla"><textarea rows="4" name="alergico" cols="40"><?php echo $_REQUEST["alergico"]; ?></textarea></td>
 </tr>
 <tr>
-	<td class="tdatos">Medicamento Que Toma Actualmente</td>
+	<td class="tdatos">Indicaciones</td>
 	<td class="dtabla"><textarea rows="4" name="medact" cols="40"><?php echo $_REQUEST["medact"]; ?></textarea></td>
 </tr>
 <tr>
-	<td class="tdatos">Enfermedad Que Tiene</td>
+	<td class="tdatos">Padecimiento Actual</td>
 	<td class="dtabla"><textarea rows="4" name="enfermedad" cols="40"><?php echo $_REQUEST["enfermedad"]; ?></textarea></td>
 </tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Registrar">
-	<input name="Restablecer" type="reset" value="Limpiar" /></td>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
+	<td colspan="2" align="center"><input class = "button-blue" type="submit" name="acc" value="Registrar">
+	<input class = "button-blue" name="Restablecer" type="reset" value="Limpiar" /></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 </table>
 </form>
 </br>

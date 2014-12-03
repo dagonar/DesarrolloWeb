@@ -174,7 +174,7 @@ $foto = "../mod_registros/".$foto;
 	<td class="tdatos" colspan="2" align="center"><h3>DATOS PERSONALES</h3></td>
 </tr>
 <tr>
-	<td class="tdatos">C&eacute;dula</td>
+	<td class="tdatos">No. de Cama</td>
 	<td class="dtabla">
 	 <input type="hidden" name="cedula" value="<?php echo $cedula; ?>"><?php echo $cedula; ?></input></td>
 </tr>
@@ -213,7 +213,7 @@ $foto = "../mod_registros/".$foto;
 	<input type="hidden" name="sala" value="<?php echo $sala; ?>"><?php echo $sala; ?></input></td>
 </tr>
 <tr>
-	<td class="tdatos">Nombre del Representante</td>
+	<td class="tdatos">Nombre del Adscrito</td>
 	<td class="dtabla">
 	<input type="hidden" name="nomrep" value="<?php echo $nomrep; ?>"><?php echo $nomrep;?></input></td>
 	</tr>
@@ -356,11 +356,13 @@ if ($caso!='0'){//esta desicion se debe a que sólo muestra esta  informacion si 
 <tr>
 <?php 
 }//fin de caso
-			echo '<tr>
+			echo '<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
+			<tr>
 						<td colspan="2" align="center" class="cdato">
-						<input type="button" value="Actualizar Datos" onclick="location.href='."'".'act_his.php?cedula=cedula&cedula1='.$cedula."'".'">
+						<input class="button-blue" type="button" value="Actualizar Datos" onclick="location.href='."'".'act_his.php?cedula=cedula&cedula1='.$cedula."'".'">
 						&nbsp; <input type="submit" name="imp" value="" class="imprimir"></td>
-				</tr>';
+			</tr>
+			<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>';
 ?>
 <?php
 	}else ///genera una lista de todos los resultados que encuentra en la base de datos.
@@ -368,7 +370,7 @@ if ($caso!='0'){//esta desicion se debe a que sólo muestra esta  informacion si 
 ?>
 		<table width="500" align="center" class="tabla">
 		<tr>
-			<td class="tdatos">CEDULA</td>
+			<td class="tdatos">CAMA</td>
 			<td class="tdatos">NOMBRES</td>
 			<td class="tdatos">APELLIDOS</td>
 			<td class="tdatos">EDAD</td>

@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../theme/js/hoverIntent.js"></script>
 	<script type="text/javascript" src="../theme/js/superfish.js"></script>
 </head>
-<?php  if($_SESSION["tipo"]=="ADMINISTRADOR"){$tipo = "Administrador";}elseif($_SESSION["tipo"]=="ASISTENTE"){$tipo="Asistente";}?>
+<?php  if($_SESSION["tipo"]=="MEDICO"){$tipo = "Doctor";}elseif($_SESSION["tipo"]=="ASISTENTE"){$tipo="Asistente";}?>
 
 <html>
 <body>
@@ -49,76 +49,70 @@
 
 <!-- Menu -->
 <div id="navigator">
+    <ul class="sf-menu">
+        <li class="current">
+            <a href="../mod_inicio/index.php">Inicio</a>
+        </li>
 
-<ul class="sf-menu">
-			<li class="current">
-				<a href="">Inicio</a>
-				<ul>
-					<li>
-						<a href="../mod_inicio/index.php">Principal</a>
-					</li>
-					<li>
-						<a href="../mod_configuracion/login.php">Salir</a>
-					</li>
-				</ul>
-			</li>
+        <li>
+            <a href="">Censo</a>
+            <ul>
+                <!-- <li>
+                    <a href="">Administracion del Sistema</a>
+						<ul>
+							<li><a href="../mod_usuarios/reg_usu.php">Registrar Usuario Medico y Profesional</a></li>
+							<li><a href="../mod_usuarios/act_usu.php">Configuracion de Usuarios</a></li>
+						</ul>
+                </li> -->
+
+                <li>
+                    <a href="">Registro de Pacientes</a>
+                    <ul>
+                        <li><a href="../mod_registros/reg_est.php">Registrar Paciente</a>
+                        </li>
+                        <li><a href="../mod_registros/act_est.php">Actualizar Datos de un Paciente</a>
+                        </li>
+                        <li><a href="../mod_registros/bus_est.php">Ubicar Paciente</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 			
 			<li>
-				<a href="">Registros</a>
-				<ul>
-					<li>
-						<!-- <a href="">Administracion del Sistema</a>
-						<ul>
-							<li><a href="../mod_usuarios/reg_usu.php">Registrar Usuario Medico y Profecional</a></li>
-							<li><a href="../mod_usuarios/act_usu.php">Configuracion de Usuari&oacute;s</a></li>
-							<li><a href="../mod_usuarios/cam_usu.php">Cambiar Contrase&#241;a Usuari&oacute;s</a></li>
-						</ul> -->
-					</li>
-					
-					<li>
-						<a href="">Registro Para Pacientes</a>
-						<ul>
-							<li><a href="../mod_registros/reg_est.php">Registrar Paciente</a></li>
-							<li><a href="../mod_registros/act_est.php">Acualizar Datos de un Paciente</a></li>
-							<li><a href="../mod_registros/bus_est.php">Ubicar Paciente</a></li>
-						</ul>
-					</li>
-					
-					<li>
-						<a href="">Historial</a>
-						<ul>
-							<li><a href="../mod_historial/reg_his.php">Registrar Historial</a></li>
-							<li><a href="../mod_historial/act_his.php">Editar Historial</a></li>
-							<li><a href="../mod_historial/bus_his.php">Buscar Historial </a></li>
-						</ul>
-					</li>
-					
-					
-				</ul>			
-			
-			<li>
-				<a href="">Información</a>
-				<ul>
-					<li>
-						<a href="../mod_enfermedad/enfermedad.php">Enfermedades</a>
-					</li>
-										
-				</ul>
-			</li>
-            
+                    <a href="">Historial</a>
+                    <ul>
+                        <li><a href="../mod_historial/reg_his.php">Registrar Historial</a>
+                        </li>
+                        <li><a href="../mod_historial/act_his.php">Editar Historial</a>
+                        </li>
+                        <li><a href="../mod_historial/bus_his.php">Buscar Historial </a>
+                        </li>
+                    </ul>
+                </li>
+
             <li>
-				<a href="">Acerca de</a>
+                <a href="">Información</a>
+                <ul>
+                    <li>
+                        <a href="../mod_enfermedad/enfermedad.php">Por Fechas</a>
+                    </li>
+
+                </ul>
+            </li>
+                  <li>
+				<a href="">Contraseña</a>
 				<ul>
 					<li>
-						<a href="../mod_creditos/creditos.php">Creditos</a>
+						<a href="../mod_usuarios/cam_usu.php">Cambio de contraseña</a>
 					</li>
-										
-				</ul>
-			</li>
-			
-		</ul>
+    </ul>
+    </li>
+            <li>
+                <a href="../mod_configuracion/login.php">Salir</a>
 
+            </li>
 
+    </ul>
 </div>
 <!-- Final del menu -->
 

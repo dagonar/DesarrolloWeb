@@ -8,7 +8,6 @@ $sql_fecha = "SELECT DISTINCT fecha FROM patologia ORDER BY fecha asc";
 $res_fecha = mysql_query($sql_fecha, $con);
 $opciones = '<option value="0"> Elije una fecha </option>';
 while( $fila = mysql_fetch_array($res_fecha) ){
-//	$opciones .= "<option value=". $fila["fecha"] .">". $fila["fecha"] ."</option>";
 //Tranformacion de tipo de fecha
 	$date = explode("-", $fila["fecha"]);
 	$ano = $date[0];
@@ -17,6 +16,7 @@ while( $fila = mysql_fetch_array($res_fecha) ){
 	$mes = meses($mes); 
 	$fecha = fecha_completa($dia, $mes, $ano);
 	$opciones .= "<option value=". $fila["fecha"] .">". $fecha ."</option>";
+	//$opciones .= "<option value=". $fila["fecha"] .">". $fila["fecha"] ."</option>";
 	}
 ?>
 <br />

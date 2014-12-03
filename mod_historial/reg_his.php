@@ -6,7 +6,7 @@ require("../theme/header_inicio.php");
 <br />
 <div class="titulo">Historial del Paciente</div><br /><br />
 <?php
-//BUSCA EN LOS REGISTROS DE IHISTORIALES CUAL ES EL MAXIMO NUMERO O EL ULTIMO MAYOR
+//BUSCA EN LOS REGISTROS DE HISTORIALES CUAL ES EL MAXIMO NUMERO O EL ULTIMO MAYOR
 $max="select max(dni_historial) as maxid from historial";
 $rs=mysql_query($max,$con);
 	if(mysql_num_rows($rs)){
@@ -15,7 +15,7 @@ $rs=mysql_query($max,$con);
 if (strtolower($_REQUEST["acc"])=="registrar"){// CUANDO LA ACCION SEA "registrar" ENTRA EN LA CONDICION
 //VALIDACIONES DE LOS DATOS ENVIADOS
 if ($_REQUEST["cedpro"]=="" or $_REQUEST["cedpac"]=="" or $_POST["obser"]==""){
-	cuadro_error("Debe ingresar la cédulas del profesional y del paciente con su respectiva observación");
+	cuadro_error("Debe ingresar la cédulas del profesional y cama del paciente con su respectiva observación");
 	}else{
 $sql="insert into historial(ced_pac,ced_prof,fec_gen_hist,observacion,diagnostico,tratamiento,receta) values('".$_REQUEST["cedpac"]."','".$_REQUEST["cedpro"]."','".$_REQUEST["ano1"]."-".$_REQUEST["mes1"]."-".$_REQUEST["dia1"]."','".$_REQUEST["obser"]."','".$_REQUEST["diagnostico"]."','".$_REQUEST["tratamiento"]."','".$_REQUEST["receta"]."') ";
 $sql2="update expediente set ced_exp='".$_REQUEST["codexp"]."',fec_gen_exp='".$_REQUEST["ano1"]."-".$_REQUEST["mes1"]."-".$_REQUEST["dia1"]."',estado_exp='".$_REQUEST["estado"]."' where ced_paciente='".$_REQUEST["cedpac"]."' ";
@@ -83,7 +83,7 @@ $tipoprof=mysql_result($result,0,"tipo_prof");
 }
 ?>
 <tr>
-	<td class="tdatos">C&eacute;dula del Paciente</td>
+	<td class="tdatos">Cama del Paciente</td>
 	<td class="dtabla"><input type="text" name="cedpac" value="<?php echo $_REQUEST["cedpac"]; ?>" onchange="this.form.submit()" size="12" /></td>
 </tr>
 <?php
@@ -152,7 +152,7 @@ echo '<tr>
 	<td><input type="text" name="nomrep" value='.$nomrep.' size="40" readonly/></td>
 </tr>
 <tr>
-	<td class="tdatos">Telefonos</td>
+	<td class="tdatos">Telefono</td>
 	<td><input type="text" name="telefono" value='.$telefono.' size="20" readonly /></td>
 </tr>
 <tr>
@@ -241,9 +241,11 @@ echo '<tr>
 	<td class="tdatos">Receta</td>
 	<td class="dtabla"><textarea rows="4" name="receta" cols="40"><?php echo $_POST["receta"]; ?></textarea></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Registrar"></td>
+	<td colspan="2" align="center"><input class="button-blue" type="submit" name="acc" value="Registrar"></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 </table>
 </form>
 <?php

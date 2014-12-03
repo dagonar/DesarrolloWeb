@@ -1,17 +1,6 @@
 <?php
 require("../mod_configuracion/conexion.php");
 require("../theme/header_inicio.php");
-/*******************************************************************
-**************     Medical Center Version 1.0.1    *****************
-********************************************************************
-***************  @Author ISC.Ulises Rodriguez T.   *****************
-********************************************************************
-***************   @Author Ing.Jorge Hernández.     *****************
-********************************************************************
-***************          @copyright 2010           ***************** 
-********************************************************************
-***************           @No modificar            *****************
-********************************************************************/
 ?>
 <br />
 <div class="titulo">Registro de Usuarios y Profesional</div><br /><br />
@@ -90,16 +79,16 @@ if(mysql_num_rows($result) == 1){
 	<td class="tdatos">Tipo:</td>
 	<td>
 		<select name="tipo">
-			<option value="ADMINISTRADOR" <?php if ($tipo=="ADMINISTRADOR") echo "selected" ?>>ADMINISTRADOR</option>
+			<option value="MEDICO" <?php if ($tipo=="MEDICO") echo "selected" ?>>MEDICO</option>
 			<option value="ASISTENTE" <?php if ($tipo=="ASISTENTE") echo "selected" ?>>ASISTENTE</option>
 		</select>
 	</td>
 </tr>
 <!-- Add data to Table Professional -->
 <tr>
-	<td colspan="2" class="tdatos" align="center"><h3>DATOS DEL PROFECIONAL</h3></td>
+	<td colspan="2" class="tdatos" align="center"><h3>DATOS DEL MEDICO</h3></td>
 <tr>
-	<td class="tdatos">Cedula del Profesional:</td>
+	<td class="tdatos">Cedula del Medico:</td>
 	<td><input type="text" name="ced_prof" value="<?php echo $_REQUEST["ced_prof"]; ?>"  size="45" /></td>
 </tr>
 <tr>

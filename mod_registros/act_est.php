@@ -100,7 +100,7 @@ if (strtolower($_REQUEST["acc"])=="guardar"){
 <form action="act_est.php" method="post">
 <table align="center" class="tabla">
 <tr>
-	<td colspan="2" align="center">Ingrese N&ordm; de Cedula del paciente</td>
+	<td colspan="2" align="center">Ingrese N&ordm; de Cama del paciente</td>
 	<tr>
 	<td><input name="cedula1" type="text" value="" size="20"></td>
 	<td><input type="submit" value="Buscar"></td>
@@ -156,7 +156,7 @@ if(mysql_num_rows($r) == 1){echo '
 	<td class="tdatos" colspan="2" align="center"><h3>DATOS PERSONALES DEL PACIENTE</h3></td>
 </tr>
 <tr>
-	<td class="tdatos">C&eacute;dula</td>
+	<td class="tdatos">No. de Cama</td>
 	<td><input type="text" name="cedula" value="<?php echo $cedula; ?>" size="12" /></td>
 </tr>
 <tr>
@@ -190,11 +190,11 @@ if(mysql_num_rows($r) == 1){echo '
 	</td>
 </tr>
 <tr>
-	<td class="tdatos">Nombre del Representante</td>
+	<td class="tdatos">Nombre del Adscrito</td>
 	<td><input type="text" name="nomrep" value="<?php echo $nomrep; ?>" size="40" /></td>
 </tr>
 <tr>
-	<td class="tdatos">Telefonos</td>
+	<td class="tdatos">Telefono</td>
 	<td><input type="text" name="telefono" value="<?php echo $telefono; ?>" size="20" /></td>
 </tr>
 <tr>
@@ -246,7 +246,7 @@ if(mysql_num_rows($r) == 1){echo '
 	</td>
 </tr>	
 <tr>
-	<td class="tdatos">estado</td>
+	<td class="tdatos">Estado</td>
 	<td><input type="text" name="estado" value="<?php echo $estado; ?>" size="13" /></td>
 </tr>
 <tr>
@@ -254,7 +254,7 @@ if(mysql_num_rows($r) == 1){echo '
 	<td><input type="text" name="ciudad" value="<?php echo $ciudad; ?>" size="13" /></td>
 </tr>
 <tr>
-	<td class="tdatos">municipio</td>
+	<td class="tdatos">Municipio</td>
 	<td><input type="text" name="municipio" value="<?php echo $municipio; ?>" size="15" /></td>
 </tr>
 <tr>
@@ -311,22 +311,24 @@ if(mysql_num_rows($r) == 1){echo '
 	<td><input type="text" name="ocupacion" value="<?php echo $ocupacion; ?>" size="40" /></td>
 </tr>
 <tr>
-	<td class="tdatos">Alergico</td>
+	<td class="tdatos">Alergias</td>
 	<td><textarea rows="4" name="alergico" cols="40"><?php echo $alergico; ?></textarea></td>
 </tr>
 <tr>
-	<td class="tdatos">Medicamento Que Toma Actualmente</td>
+	<td class="tdatos">Indicaciones</td>
 	<td><textarea rows="4" name="medact" cols="40"><?php echo $medact; ?></textarea></td>
 </tr>
 <tr>
-	<td class="tdatos">Enfermedad Que Tiene</td>
+	<td class="tdatos">Padecimiento Actual</td>
 	<td><textarea rows="4" name="enfermedad" cols="40"><?php echo $enfermedad; ?></textarea></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Guardar">    
+	<td colspan="2" align="center"><input class = "button-blue" type="submit" name="acc" value="Guardar">    
 	&nbsp; 
-	<input type="submit" name="del" value="Eliminar" onclick="confirmation();"></td>
+	<input class = "button-blue" type="submit" name="del" value="Eliminar" onclick="confirmation();"></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 </table>
 </form>
 <?php

@@ -3,7 +3,7 @@ require("../mod_configuracion/conexion.php");
 require("../theme/header_inicio.php");
 ?>
 <br />
-<div class="titu">Consulta del Paciente</div><br /><br />
+<div class="titulo">Consulta del Paciente</div><br /><br />
 <div id="centercontent">
 <div align="center">
 <table>
@@ -123,7 +123,7 @@ if($_REQUEST["busqueda"]=="cedula"){
 </tr>
 
 <tr>
-	<td class="tdatos">C&eacute;dula:</td>
+	<td class="tdatos">Cama:</td>
 	<td class="dtabla">
 	 <input type="hidden" name="cedula" value="<?php echo $cedula; ?>"><?php echo $cedula; ?></input></td>
 </tr>
@@ -177,7 +177,7 @@ if($_REQUEST["busqueda"]=="cedula"){
 </tr>
 
 <tr>
-	<td class="tdatos">Nombre del Representante:</td>
+	<td class="tdatos">Nombre del Adscrito:</td>
 	<td class="dtabla">
 	<input type="hidden" name="nomrep" value="<?php echo $nomrep; ?>"><?php echo $nomrep;?>
 	</input></td>
@@ -254,7 +254,7 @@ if($_REQUEST["busqueda"]=="cedula"){
 </tr>
 
 <tr>
-	<td class="tdatos">Alergico:</td>
+	<td class="tdatos">Alergias:</td>
 	<td class="dtabla">
 	<input type="hidden" name="alergico" value="<?php echo $alergico; ?>"><?php echo $alergico; ?>
 	</input></td>
@@ -275,14 +275,14 @@ if($_REQUEST["busqueda"]=="cedula"){
 </tr>
 
 <tr>
-	<td class="tdatos">Medicamento Que toma Actualmente:</td>
+	<td class="tdatos">Indicaciones:</td>
 	<td class="dtabla">
 	<input type="hidden" name="medact" value="<?php echo $medact; ?>"><?php echo $medact; ?>
 	</input></td>
 </tr>
 
 <tr>
-	<td class="tdatos">Enfermedad Que Tiene:</td>
+	<td class="tdatos">Padecimiento Actual:</td>
 	<td class="dtabla">
 	<input type="hidden" name="enfermedad" value="<?php echo $enfermedad; ?>"><?php echo $enfermedad; ?>
 	</input></td>
@@ -295,12 +295,14 @@ if($_REQUEST["busqueda"]=="cedula"){
 	</input></td>
 </tr>
 <?php 
-			echo '<tr>
+			echo '<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
+			<tr>
 				<td colspan="2" align="center" class="cdato">
-<input type="button" value="Actualizar Datos" onclick="location.href='."'".'act_est.php?cedula=cedula&cedula1='.$cedula."'".'">
+<input class="button-blue" type="button" value="Actualizar Datos" onclick="location.href='."'".'act_est.php?cedula=cedula&cedula1='.$cedula."'".'">
 &nbsp; <input type="submit" name="imp"  value="" class="imprimir"></td>
 
-				</tr>';
+			</tr>
+			<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>';
 ?>
 </td>
 </table>
@@ -310,7 +312,7 @@ if($_REQUEST["busqueda"]=="cedula"){
 ?>
 		<table width="500" align="center" class="tabla">
 		<tr>
-			<td class="tdatos">CEDULA</td>
+			<td class="tdatos">CAMA</td>
 			<td class="tdatos">NOMBRES</td>
 			<td class="tdatos">APELLIDOS</td>
 			<td class="tdatos">EDAD</td>

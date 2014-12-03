@@ -14,7 +14,7 @@ require("../theme/header_inicio.php");
 if (strtolower($_REQUEST["acc"])=="modificar"){
 			if($_REQUEST["nombre"]!="" or $_REQUEST["pass"]!=""or $_REQUEST["pass2"]!="" or $_REQUEST["tipo"]!=""){
 	if ($_REQUEST["pass"]!=$_REQUEST["pass2"]){
-		cuadro_error("Las contrase&ntilde;as introducidas no coinciden");
+		cuadro_error("Las contraseñas introducidas no coinciden");
 	}else
 	{
 	
@@ -117,9 +117,15 @@ if (mysql_num_rows(($result))==1){
 		</select>
 	</td>
 </tr>
+   <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
 <tr>
-	<td colspan="3" align="center"><input type="submit" name="acc" value="Modificar" size="20"></td>
+	<td colspan="3" align="center"><input class="button-blue" type="submit" name="acc" value="Modificar" size="20"></td>
 </tr>
+   <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
 </table>
 </form>
 

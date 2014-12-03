@@ -22,7 +22,7 @@ require_once("classpdf/fpdf.php");
     $pdf->Ln();  
 /**************** Campo cedula ****************/	
     $pdf->SetFont('Arial','B',10);
-	$camp_ced = "Cedula:";
+	$camp_ced = "No. de Cama:";
 	$camp_ced_value = $_POST["cedula"];
 	$pdf->Cell(50, 8,$camp_ced,1);
 	$pdf->SetFont("Times");
@@ -76,14 +76,14 @@ require_once("classpdf/fpdf.php");
 	$pdf->SetFont("Times");
 	$pdf->Cell(140, 8,$camp_sala_value,1);
 	$pdf->Ln();
-/**************** Campo Nombre del representante ****************/		
-    $pdf->SetFont('Arial','B',10);
-	$camp_nombrerep = "Nombre del Representante:";
-    $camp_nombrerep_value = $_POST["nomrep"];
-    $pdf->Cell(50, 8,$camp_nombrerep,1);
-    $pdf->SetFont("Times");
-	$pdf->Cell(140, 8,$camp_nombrerep_value,1);
-	$pdf->Ln();
+// /**************** Campo Nombre del Adscrito ****************/		
+//     $pdf->SetFont('Arial','B',10);
+// 	$camp_nombrerep = "Nombre del Representante:";
+//     $camp_nombrerep_value = $_POST["nomrep"];
+//     $pdf->Cell(50, 8,$camp_nombrerep,1);
+//     $pdf->SetFont("Times");
+// 	$pdf->Cell(140, 8,$camp_nombrerep_value,1);
+// 	$pdf->Ln();
 /**************** Campo Nombre del profesional ****************/			
     $pdf->SetFont('Arial','B',10);
 	$camp_nomprf = "Nombre del Profesional:";
@@ -158,10 +158,10 @@ require_once("classpdf/fpdf.php");
 	$pdf->Ln();
 /************* Footer ************************/	
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190, 20,"Constancia que se expide en Santa Ana de Coro, a los ___ dias del mes de ______  del  20___",0,0,'C');
+    $pdf->Cell(190, 20,"Constancia que se expide en Hospital____, a los ___ dias del mes de ______  del  20___",0,0,'C');
     $pdf->Ln();
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190, 30,"Director del Ambulatorio",0,0, 'C');
+    $pdf->Cell(190, 30,"Dr. _______",0,0, 'C');
     
     $pdf->Output();
 	

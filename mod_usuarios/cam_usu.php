@@ -63,7 +63,7 @@ if ($pass!=""){
 if ($pass!=$password){
 		echo '
      <tr>
-	<td class="cuadro_error" colspan="2" align="center">Contrase&ntilde;a incorrecta, verifique!</td>
+	<td class="cuadro_error" colspan="2" align="center">Contrase&ntilde;a incorrecta, ¡verifique!</td>
       </tr>
 		     ';
 }
@@ -81,14 +81,20 @@ if ($pass!=$password){
 	<td class="tdatos">Tipo</td>
 	<td>
 		<select name="tipo">
-			<option value="ADMINISTRADOR" <?php if ($tipo=="ADMINISTRADOR") echo "selected" ?>>ADMINISTRADOR</option>
+			<option value="MEDICO" <?php if ($tipo=="MEDICO") echo "selected" ?>>MEDICO</option>
 			<option value="AS" <?php if ($tipo=="ASISTENTE") echo "selected" ?>>ASISTENTE</option>			
 		</select>
 	</td>
 </tr>
+   <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Guardar" size="20"></td>
+	<td colspan="2" align="center"><input class= "button-blue" type="submit" name="acc" value="Guardar" size="20"></td>
 </tr>
+   <tr>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
 </table>
 </form>
 

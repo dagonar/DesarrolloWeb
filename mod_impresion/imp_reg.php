@@ -3,12 +3,12 @@
 <?php
 require_once("classpdf/fpdf.php");
 
-/*********** Create PDF ***********************/
+/*********** Se crea PDF ***********************/
     $pdf = new fpdf('P','mm','A4');
 	$pdf->AddPage();
     $pdf->SetFont('Arial','B',14);
 /***************  Header ***************************/
-    $header_uno  = $pdf->Text(10, 15, "Direccion del ambulatorio aqui");
+    $header_uno  = $pdf->Text(10, 15, "Direccion del paciente");
 	$header_uno .= $pdf->text(10, 20, "Colonia");
 	$header_uno .= 	$pdf->text(10, 25, "Ciudad");
 	$header_uno .= $pdf->text(10, 30, "Tels");
@@ -20,9 +20,9 @@ require_once("classpdf/fpdf.php");
     $beg_bod = "Constancia de Expediente";
     $pdf->Cell(190, 10,$beg_bod,0, 0, 'C');
     $pdf->Ln(); 
-/**************** Campo cedula ****************/	
+/**************** Campo Cama ****************/	
     $pdf->SetFont('Arial','B',10);
-	$camp_ced = "Cedula:";
+	$camp_ced = "No. de Cama:";
 	$camp_ced_value = $_POST["cedula"];
 	$pdf->Cell(50, 8,$camp_ced,1);
 	$pdf->SetFont("Times");
@@ -84,9 +84,9 @@ require_once("classpdf/fpdf.php");
 	$pdf->SetFont("Times");
 	$pdf->Cell(140, 8,$camp_telefono_value,1);
 	$pdf->Ln();
-/**************** Campo Nombre del representante ****************/		
+/**************** Campo Nombre del Adscrito ****************/		
     $pdf->SetFont('Arial','B',10);
-	$camp_nombrerep = "Nombre del Representante:";
+	$camp_nombrerep = "Nombre del Adscrito:";
     $camp_nombrerep_value = $_POST["nomrep"];
     $pdf->Cell(50, 8,$camp_nombrerep,1);
     $pdf->SetFont("Times");
@@ -126,23 +126,23 @@ require_once("classpdf/fpdf.php");
 	$pdf->Ln();
 /**************** Campo alergias ****************/ 	
     $pdf->SetFont('Arial','B',10);
-	$camp_alergico = "Alergico:";
+	$camp_alergico = "Alergias:";
     $camp_alergico_value = $_POST["alergico"];
     $pdf->Cell(50, 8,$camp_alergico,1);
     $pdf->SetFont("Times");
 	$pdf->MultiCell(140, 8,$camp_alergico_value,1);
 	$pdf->Ln();
-/**************** Campo Medicamentos ****************/ 		
+/**************** Indicaciones ****************/ 		
     $pdf->SetFont('Arial','B',10);
-	$camp_med = "Med. toma Actualmente:";
+	$camp_med = "Indicaciones:";
     $camp_med_value = $_POST["medact"];
     $pdf->Cell(50, 8,$camp_med,1);
     $pdf->SetFont("Times");
 	$pdf->MultiCell(140, 8,$camp_med_value,1);
 	$pdf->Ln();
-/**************** Campo Enfermedad ****************/ 		
+/**************** Padecimiento Actual ****************/ 		
     $pdf->SetFont('Arial','B',10);
-	$camp_enfermedad = "Enfermedad Que Tiene:";
+	$camp_enfermedad = "Padecimiento Actual:";
     $camp_enfermedad_value = $_POST["enfermedad"];
     $pdf->Cell(50, 8,$camp_enfermedad,1);
     $pdf->SetFont("Times");
@@ -158,10 +158,10 @@ require_once("classpdf/fpdf.php");
 	$pdf->Ln();
 /************* Footer ************************/	
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190, 20,"Constancia que se expide en Santa Ana de Coro, a los  dias del mes de  de .",0,0,'C');
+    $pdf->Cell(190, 20,"Constancia que se expide en el Hospital ...., a los  dias del mes de...  de ...",0,0,'C');
     $pdf->Ln();
     $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(190, 30,"Director del Ambulatorio",0,0, 'C');
+    $pdf->Cell(190, 30,"Dr. .......",0,0, 'C');
     
     $pdf->Output();
 	

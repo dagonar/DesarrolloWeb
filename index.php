@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Medical Center</title>
 	
-	<!--*********** cambio de hojas de estilo ***************-->
     <link rel="stylesheet" href="theme/css/style.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
 </head>
@@ -44,13 +43,8 @@
   <br />
   <div id="centercontent">
   <form action="mod_configuracion/login.php" method="post">
-    <table width="200"  align="center" border="0">
-      <tr>
-        <td  align="center"><img  align="center" src="" WIDTH=250	HEIGHT=260  align="right" alt="" /></td>
-      </tr>
-    </table>
     <div align="center">
-      <table width="259" align="center">
+      <table width="200" align="center">
         <tr>
           <td width="70" bordercolor="#333333"><span class="Estilo10">Login:</span></td>
           <td width="177" bordercolor="#333333"><input type="text" name="usuario" size="15" /></td>
@@ -59,12 +53,17 @@
           <td bordercolor="#F0F0F0"><span class="Estilo12">Password</span>:</td>
           <td><input type="password" name="password" size="15" /></td>
         </tr>
+         </table>
+         <table id="table-log">
+        <tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
         <tr>
           <td bordercolor="#F0F0F0"></td>
-          <td><input name="submit" type="submit" value="Entrar"/>
-          <input name="Restablecer" type="reset" value="Limpiar" /></td>
+          <td><input class = "button-blue" name="submit" type="submit" value="Entrar"/></td>
+          <td><input class = "button-blue" name="Restablecer" type="reset" value="Limpiar" /></td>
         </tr>
-      </table>
+        </table>
+     
+      <br>
     </div>
   </form>
   </div>
@@ -82,6 +81,7 @@
     </td>
   </tr>
 </table>
+
 <body>
 </html>
 

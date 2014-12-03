@@ -1,10 +1,10 @@
 <?php require '../mod_configuracion/configuracion.php'; ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Medical Center</title>
+<title>Registro de Usuario</title>
 	
 	<!--*********** cambio de hojas de estilo ***************-->
     <link rel="stylesheet" href="../theme/css/style.css" type="text/css">
@@ -27,8 +27,7 @@
        <div id="slogan">
        <div style="position:absolute; top:10px; left:378px; margin-left:-400px; width:681px; height:25px; font-size:25px; color:#000; font-family:'Courier New', Courier, monospace;">
   <marquee direction="left" width="100%" scrollamount="7">
-    <span class="Estilo9">SITIO EN CONSTRUCCION</span>
-  </marquee></div>
+    <span class="Estilo9"><?php echo "Bienvenido Administrador de Medical Center"; ?></span></marquee></div>
 </div>
  <img src="../theme/images/p1.jpg" alt="" width="666" height="196"></td>
       <td class="hbg">&nbsp;</td>
@@ -43,7 +42,7 @@ $con = mysql_connect($bd_host, $bd_usuario, $bd_pass);
 mysql_select_db($bd_base, $con);
 ?>
 <br />
-<div class="titulo">Registro de Usuarios y Profesional</div><br /><br />
+<div class="titulo">Registro de Usuarios</div><br /><br />
 <?php 
 if (strtolower($_REQUEST["acc"])=="registrar"){
 			if($_REQUEST["nombre"]!="" or $_REQUEST["login"]!="" or $_REQUEST["pass1"]!=""or $_REQUEST["pass2"]!="" or $_REQUEST["tipo"]!="" or $_REQUEST["ced_prof"]!="" or $_REQUEST["nombre_prof"]!="" or $_REQUEST["tipo_prof"]!="" ){
@@ -58,17 +57,18 @@ if (strtolower($_REQUEST["acc"])=="registrar"){
 	
 	if(/*sql_1 and */sql_2)
 	{
-		echo"<br /><br />";
+		echo"<br/><br/>";
 	?>
-    <script type="text/javascript">alert("Has agregado un usuario nuevo\n favor de eliminar esta seccion");</script>
+    <script type="text/javascript">alert("Has agregado un usuario nuevo\n");</script>
     <?php 	
-		echo "<br><br><br><br>";
-		require("../theme/footer_inicio.php");
+		echo "<br><a href='index.php'><button class='log'>Registrar otro Usuario</button></a><br><br><br>";
+		// require("../theme/footer_inicio.php");
 		exit;
 	} else
 	{
 		cuadro_error(mysql_error());
 	}
+
 	}
 }else
 {
@@ -119,19 +119,20 @@ if(mysql_num_rows($result) == 1){
 	<td><input type="password" name="pass2" value="" size="45"></td>
 </tr>
 <tr>
+
 	<td class="tdatos">Tipo:</td>
 	<td>
 		<select name="tipo">
-			<option value="ADMINISTRADOR" <?php if ($tipo=="ADMINISTRADOR") echo "selected" ?>>MEDICO</option>
+			<option value="MEDICO" <?php if ($tipo=="MEDICO") echo "selected" ?>>MEDICO</option>
 			<option value="ASISTENTE" <?php if ($tipo=="ASISTENTE") echo "selected" ?>>ASISTENTE</option>
 		</select>
 	</td>
 </tr>
 <!-- Add data to Table Professional -->
 <tr>
-	<td colspan="2" class="tdatos" align="center"><h3>DATOS DEL PROFESIONAL</h3></td>
+	<td colspan="2" class="tdatos" align="center"><h3>DATOS DEL MEDICO</h3></td>
 <tr>
-	<td class="tdatos">Cedula del Profesional:</td>
+	<td class="tdatos">Cédula del Profesional:</td>
 	<td><input type="text" name="ced_prof" value="<?php echo $_REQUEST["ced_prof"]; ?>"  size="45" /></td>
 </tr>
 <tr>
@@ -139,24 +140,25 @@ if(mysql_num_rows($result) == 1){
 	<td><input type="text" name="nombre_prof" value="<?php echo $_REQUEST["nombre_prof"]; ?>" size="45" /></td>
 </tr>
 <tr>
-	<td class="tdatos">Tipo:</td>
+	<td class="tdatos">Tipo de Médico:</td>
 	<td>
 		<select name="tipo_prof">
 			<option value="MEDICO" <?php if ($tipo=="MEDICO") echo "selected" ?>>MEDICO</option>
 			<option value="ASISTENTE" <?php if ($tipo=="ASISTENTE") echo "selected" ?>>ASISTENTE</option>
-			<option value="COORDINADOR" <?php if ($tipo=="COORDINADOR") echo "selected" ?>>COORDINADOR</option>
 			<option value="PSICOLOGO" <?php if ($tipo=="PSICOLOGO") echo "selected" ?>>PSICOLOGO</option>
 		</select>
 		</td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Registrar" size="20">
-	<input name="Restablecer" type="reset" value="Limpiar" /></td>
+	<td colspan="2" align="center"><input class="button-blue" type="submit" name="acc" value="Registrar" size="20">
+	<input class = "button-blue" name="Restablecer" type="reset" value="Limpiar" /> <a class = "button-blue" name="Salir" href="../mod_configuracion/login_2.php">Salir<a/>   </td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 </table>
 </form>
 
-<br /><br />
+<br/><br/>
 <?php
 require("../theme/footer_inicio.php");
 ?>

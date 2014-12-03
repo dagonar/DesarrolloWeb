@@ -37,7 +37,7 @@ if(!$bandera){
 <form action="act_his.php" method="post">
 <table align="center" class="tabla">
 <tr>
-	<td colspan="2" align="center">Ingrese Cedula del Paciente</td>
+	<td colspan="2" align="center">Ingrese No. de Cama del Paciente</td>
 	<tr>
 	<td><input name="cedula1" type="text" value="" size="20"></td>
 	<td><input type="submit" value="Buscar"></td>
@@ -106,7 +106,7 @@ if($receta==""){$receta=$_REQUEST["receta"];}
 	<td class="dtabla"><input type="text" name="cedpro" value="<?php echo $cedulpro; ?>" onchange="this.form.submit()" size="12" /></td>
 </tr>
 <?php
-///cuando ya esta registrado el prof
+///cuando ya esta registrado el medico
 if($cedulpro!=""){
 $result=mysql_query("select * from profesional where ced_prof='".quitar($cedulpro)."' ",$con);
 if(mysql_num_rows($result) == 1){
@@ -131,7 +131,7 @@ $tipoprof=mysql_result($result,0,"tipo_prof");
 }
 ?>
 <tr>
-	<td class="tdatos">C&eacute;dula del Paciente</td>
+	<td class="tdatos">No. de Cama</td>
 	<td class="dtabla"><input type="text" name="cedpac" value="<?php echo $cedulpac ?>" onchange="this.form.submit()" size="12" /></td>
 </tr>
 <?php
@@ -196,7 +196,7 @@ echo '</tr>
 	<td class="dtabla"><input type="text" name="sexo" value='. $sexo.' size="15" readonly /></td>
 </tr>
 <tr>
-	<td class="tdatos">Nombre del Representante</td>
+	<td class="tdatos">Nombre del Adscrito</td>
 	<td class="dtabla"><input type="text" name="nomrep" value='.$nomrep.' size="40" readonly/></td>
 </tr>
 <tr>
@@ -369,9 +369,11 @@ echo "</tr>";
 	<td class="tdatos">Receta</td>
 	<td class="dtabla"><textarea rows="4" name="receta" cols="40"><?php echo $receta; ?></textarea></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
 <tr>
-	<td colspan="2" align="center"><input type="submit" name="acc" value="Registrar"></td>
+	<td colspan="2" align="center"><input class="button-blue" type="submit" name="acc" value="Registrar"></td>
 </tr>
+<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>3
 </table>
 </form>
 <?php
